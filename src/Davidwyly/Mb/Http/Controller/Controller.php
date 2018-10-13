@@ -23,7 +23,7 @@ abstract class Controller
      */
     public function __construct(Request $request)
     {
-        $this->request = new Request();
+        $this->request = $request;
     }
 
     protected function renderSuccess($data, $http_response_code = self::HTTP_SUCCESS)

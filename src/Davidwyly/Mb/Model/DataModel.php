@@ -4,5 +4,5 @@ namespace Davidwyly\Mb\Model;
 
 abstract class DataModel
 {
-
+    // TODO
 }

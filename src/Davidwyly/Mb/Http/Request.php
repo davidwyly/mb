@@ -6,7 +6,6 @@ use Davidwyly\Mb\Exception\RequestException;
 
 class Request
 {
-
     const FORM_HTTP_CONTENT_TYPES = [
         'application/form-data',
         'application/x-www-form-urlencoded',

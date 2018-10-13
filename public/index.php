@@ -2,15 +2,19 @@
 
 use Davidwyly\Mb\Http\Request;
 use Davidwyly\Mb\Http\Controller\PatientController;
+use Davidwyly\Mb\Http\Router;
 
 require_once(__DIR__ . '/../config/bootstrap.php');
 
 try {
-    $request    = new Request();
-    $controller = new PatientController($request);
-    $controller->create();
+    $router = new Router(new Request());
 
-    // TODO: get router working to support dynamic URIs
+    /**
+     * Define routes and controller callbacks for when the route is invoked
+     */
+    $router->post('/patient', function (Request $request) {
+        (new PatientController($request))->create();
+    });
 
 } catch (\Exception $e) {
     die(json_encode(['error' => $e->getMessage()], JSON_PRETTY_PRINT));
