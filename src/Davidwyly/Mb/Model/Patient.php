@@ -11,6 +11,10 @@ namespace Davidwyly\Mb\Model;
 class Patient extends DataModel
 {
 
+    /**
+     * @param array $data
+     * @throws \Exception
+     */
     public function create(array $data)
     {
         $this->validateData($data);
@@ -19,6 +23,10 @@ class Patient extends DataModel
          */
     }
 
+    /**
+     * @param $data
+     * @throws \Exception
+     */
     private function validateData($data): void
     {
         $required_keys = [
@@ -46,6 +54,11 @@ class Patient extends DataModel
         }
     }
 
+    /**
+     * @param $external_id
+     *
+     * @return bool
+     */
     private function isValidExternalId($external_id)
     {
         if (is_int($external_id) && $external_id > 0) {
@@ -60,6 +73,11 @@ class Patient extends DataModel
         return false;
     }
 
+    /**
+     * @param $date_of_birth
+     *
+     * @return bool
+     */
     private function isValidDateOfBirth($date_of_birth)
     {
         $date_time = new \DateTime($date_of_birth);

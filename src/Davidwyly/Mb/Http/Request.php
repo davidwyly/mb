@@ -18,6 +18,7 @@ class Request
     ];
 
     const JSON_HTTP_CONTENT_TYPES = [
+        'text/json',
         'application/json',
     ];
 
@@ -103,8 +104,6 @@ class Request
     /**
      * Collects POST data, depending on the context of the content type
      *
-     * @throws RequestException
-     *
      * @return void
      */
     private function getPost(): void
@@ -114,10 +113,10 @@ class Request
                 $this->getFormPost();
                 break;
             case $this->isXml():
-                $this->post['xml'] = $this->getXmlStream();
+                $this->post['xml'] = $this->getXmlInput();
                 break;
             case $this->isJson():
-                $this->post['json'] = $this->getJsonStream();
+                $this->post['json'] = $this->getJsonInput();
                 break;
             default:
                 $this->post[$this->http_content_type] = $this->getPostInput();
@@ -141,7 +140,7 @@ class Request
      *
      * @return \SimpleXMLElement
      */
-    private function getXmlStream(): \SimpleXMLElement
+    private function getXmlInput(): \SimpleXMLElement
     {
         return new \SimpleXMLElement($this->getPostInput());
     }
@@ -151,7 +150,7 @@ class Request
      *
      * @return \stdClass
      */
-    private function getJsonStream(): \stdClass
+    private function getJsonInput(): \stdClass
     {
         return json_decode($this->getPostInput());
     }

@@ -58,7 +58,7 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
     }
 
     /**
-     * Parse\Json interface method
+     * Parse\Json interface
      *
      * @param \stdClass $json
      *
@@ -67,19 +67,7 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
      */
     public function parseJson(\stdClass $json): array
     {
-        $required_fields = [
-            'firstName',
-            'lastName',
-            'patientUid',
-            'dateOfBirth',
-        ];
-
-        $missing_fields = [];
-        foreach ($required_fields as $required_field) {
-            if (empty($json->{$required_field})) {
-                $missing_fields[] = $required_field;
-            }
-        }
+        $this->validateJson($json);
 
         preg_match('/(?<=patientid)\d+$/', $json->patientUid, $matches);
         if (!isset($matches[0])) {
@@ -97,19 +85,17 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
         ];
     }
 
-    private function validateJson() {
-
-    }
-
     /**
-     * Parse\Xml interface method
+     * Parse\Xml interface
      *
      * @param \SimpleXMLElement $xml
      *
      * @return array
+     * @throws ControllerException
      */
     public function parseXml(\SimpleXMLElement $xml): array
     {
+        $this->validateXml($xml);
         $date_of_birth = (string)$xml->PatientDemographics->DOB;
         $date_of_birth = (new \DateTime($date_of_birth))->format('Y-m-d');
 
@@ -119,5 +105,46 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
             'external_id'   => (string)$xml->UniqueIdentifiers->MasterPatient->MasterPatientID,
             'date_of_birth' => $date_of_birth,
         ];
+    }
+
+    /**
+     * @param \stdClass $json
+     *
+     * @throws ControllerException
+     */
+    private function validateJson(\stdClass $json): void
+    {
+        $required_fields = [
+            'firstName',
+            'lastName',
+            'patientUid',
+            'dateOfBirth',
+        ];
+
+        $missing_fields = [];
+        foreach ($required_fields as $required_field) {
+            if (empty($json->{$required_field})) {
+                $missing_fields[] = $required_field;
+            }
+        }
+        if (!empty($missing_fields)) {
+            $error_string = implode(", ", $missing_fields);
+            throw new ControllerException("Missing required fields: $error_string", self::HTTP_CLIENT_ERROR);
+        }
+    }
+
+    /**
+     * @param \SimpleXMLElement $xml
+     *
+     * @throws ControllerException
+     */
+    private function validateXml(\SimpleXMLElement $xml) {
+        if (empty($xml->PatientDemographics->FirstName)
+            || empty($xml->PatientDemographics->LastName)
+            || empty($xml->UniqueIdentifiers->MasterPatient->MasterPatientID)
+            || empty($xml->PatientDemographics->DOB)
+        ) {
+            throw new ControllerException("Missing required fields, verify contract", self::HTTP_CLIENT_ERROR);
+        }
     }
 }
