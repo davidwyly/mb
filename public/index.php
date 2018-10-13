@@ -9,6 +9,9 @@ try {
     $request    = new Request();
     $controller = new PatientController($request);
     $controller->create();
+
+    // TODO: get router working to support dynamic URIs
+
 } catch (\Exception $e) {
     die(json_encode(['error' => $e->getMessage()], JSON_PRETTY_PRINT));
 }
