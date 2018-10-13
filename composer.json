@@ -1,0 +1,25 @@
+{
+  "name": "davidwyly/mb",
+  "description": "MB Test",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Davidwyly\\": "src/Davidwyly/"
+    }
+  },
+  "config": {
+    "preferred-install": "source"
+  },
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "authors": [
+    {
+      "name": "David Wyly",
+      "email": "david.wyly@gmail.com"
+    }
+  ]
+}
