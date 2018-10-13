@@ -16,6 +16,11 @@ abstract class Controller
      */
     public $request;
 
+    /**
+     * Controller constructor.
+     * @param Request $request
+     * @throws \Davidwyly\Mb\Exception\RequestException
+     */
     public function __construct(Request $request)
     {
         $this->request = new Request();

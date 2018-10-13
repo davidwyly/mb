@@ -2,7 +2,6 @@
 
 namespace Davidwyly\Mb\Http\Controller;
 
-
 use Davidwyly\Mb\Model\Patient;
 use Davidwyly\Mb\Http\Controller\Collect;
 use Davidwyly\Mb\Http\Controller\Parse;
