@@ -16,6 +16,11 @@ try {
         (new PatientController($request))->create();
     });
 
+    $router->post('/clinician', function() {
+        http_response_code(401);
+        echo json_encode(["Not implemented"], JSON_PRETTY_PRINT);
+    });
+
 } catch (\Exception $e) {
     die(json_encode(['error' => $e->getMessage()], JSON_PRETTY_PRINT));
 }

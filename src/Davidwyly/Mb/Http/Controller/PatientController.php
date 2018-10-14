@@ -26,7 +26,7 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
     /**
      * Create controller action
      */
-    public function create()
+    public function create(): void
     {
         try {
             $request_data = $this->getRequestData();
@@ -42,7 +42,7 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
      * @return array
      * @throws ControllerException
      */
-    private function getRequestData()
+    private function getRequestData(): array
     {
         if ($this->request->isXml()) {
             $xml = $this->collectXml();
@@ -96,9 +96,11 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
     public function parseXml(\SimpleXMLElement $xml): array
     {
         $this->validateXml($xml);
+        /** @noinspection PhpUndefinedFieldInspection */
         $date_of_birth = (string)$xml->PatientDemographics->DOB;
         $date_of_birth = (new \DateTime($date_of_birth))->format('Y-m-d');
 
+        /** @noinspection PhpUndefinedFieldInspection */
         return [
             'first_name'    => (string)$xml->PatientDemographics->FirstName,
             'last_name'     => (string)$xml->PatientDemographics->LastName,
@@ -138,7 +140,8 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
      *
      * @throws ControllerException
      */
-    private function validateXml(\SimpleXMLElement $xml) {
+    private function validateXml(\SimpleXMLElement $xml): void {
+        /** @noinspection PhpUndefinedFieldInspection */
         if (empty($xml->PatientDemographics->FirstName)
             || empty($xml->PatientDemographics->LastName)
             || empty($xml->UniqueIdentifiers->MasterPatient->MasterPatientID)

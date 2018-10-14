@@ -14,7 +14,10 @@
     "php": "^7.2",
     "ext-json": "*",
     "ext-simplexml": "*",
-    "ext-ctype": "*"
+    "ext-ctype": "*",
+    "ext-mbstring": "*",
+    "vlucas/phpdotenv": "^2.5",
+    "league/oauth2-server": "^7.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^7"

@@ -32,9 +32,34 @@ class Request
     public $http_content_type;
 
     /**
+     * @var string
+     */
+    public $request_uri;
+
+    /**
      * @var array
      */
     public $post = [];
+
+    /**
+     * @var array
+     */
+    public $get = [];
+
+    /**
+     * @var array
+     */
+    public $put = [];
+
+    /**
+     * @var array
+     */
+    public $patch = [];
+
+    /**
+     * @var array
+     */
+    public $delete = [];
 
     /**
      * Router constructor.
@@ -45,10 +70,14 @@ class Request
     {
         $this->request_method    = $this->getRequestMethod();
         $this->http_content_type = $this->getHttpContentType();
+        $this->request_uri       = $this->getRequestUri();
         $this->loadRequest();
     }
 
-    public function isJson()
+    /**
+     * @return bool
+     */
+    public function isJson(): bool
     {
         if (in_array($this->http_content_type, self::JSON_HTTP_CONTENT_TYPES)) {
             return true;
@@ -56,7 +85,10 @@ class Request
         return false;
     }
 
-    public function isXml()
+    /**
+     * @return bool
+     */
+    public function isXml(): bool
     {
         if (in_array($this->http_content_type, self::XML_HTTP_CONTENT_TYPES)) {
             return true;
@@ -64,7 +96,10 @@ class Request
         return false;
     }
 
-    public function isForm()
+    /**
+     * @return bool
+     */
+    public function isForm(): bool
     {
         if (in_array($this->http_content_type, self::FORM_HTTP_CONTENT_TYPES)) {
             return true;
@@ -85,7 +120,7 @@ class Request
                 break;
 
             /**
-             * currently unimplemented methods, add functionality as needed
+             * TODO: currently unimplemented methods, add functionality as needed
              */
             case 'GET':
                 // no break
@@ -163,6 +198,18 @@ class Request
     {
         return (string)file_get_contents("php://input");
 
+    }
+
+    /**
+     * @return string
+     * @throws RequestException
+     */
+    private function getRequestUri(): string
+    {
+        if (!isset($_SERVER['REQUEST_URI'])) {
+            throw new RequestException("Request URI not found");
+        }
+        return $_SERVER['REQUEST_URI'];
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace Davidwyly\Mb\Model;
 
+use Davidwyly\Mb\Exception\ModelException;
+
 /**
  * @property  string $first_name
  * @property  string $last_name
@@ -13,14 +15,17 @@ class Patient extends DataModel
 
     /**
      * @param array $data
+     *
+     * @return bool
      * @throws \Exception
      */
-    public function create(array $data)
+    public function create(array $data): bool
     {
         $this->validateData($data);
         /**
          * TODO: write the data in the database, or pass the data on to another integration
          */
+        return true;
     }
 
     /**
@@ -38,19 +43,19 @@ class Patient extends DataModel
 
         foreach ($required_keys as $required_key) {
             if (!array_key_exists($required_key, $data)) {
-                throw new \Exception("Required key '$required_key' is missing from parsed data");
+                throw new ModelException("Required key '$required_key' is missing from parsed data");
             }
             if (empty($data[$required_key])) {
-                throw new \Exception("Key '$required_key' cannot be empty");
+                throw new ModelException("Key '$required_key' cannot be empty");
             }
         }
 
         if (!$this->isValidExternalId($data['external_id'])) {
-            throw new \Exception("External ID '{$data['external_id']}' is invalid");
+            throw new ModelException("External ID '{$data['external_id']}' is invalid");
         }
 
         if (!$this->isValidDateOfBirth($data['date_of_birth'])) {
-            throw new \Exception("Date of Birth '{$data['date_of_birth']}' is invalid");
+            throw new ModelException("Date of Birth '{$data['date_of_birth']}' is invalid");
         }
     }
 
