@@ -7,7 +7,7 @@ use Davidwyly\Mb\Http\Controller\Collect;
 use Davidwyly\Mb\Http\Controller\Parse;
 use Davidwyly\Mb\Exception\ControllerException;
 
-class PatientController extends Controller implements Parse\Json, Parse\Xml, Parse\Form
+class PatientController extends Controller implements Parse\Json, Parse\Xml
 {
     /**
      * Trait to collect JSON from the controller's request
@@ -22,13 +22,6 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml, Par
      * @see collectXml()
      */
     use Collect\Xml;
-
-    /**
-     * Trait to collect XML from the controller's request
-     *
-     * @see collectForm()
-     */
-    use Collect\Form;
 
     /**
      * Create controller action
@@ -58,10 +51,6 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml, Par
         if ($this->request->isJson()) {
             $json = $this->collectJson();
             return $this->parseJson($json);
-        }
-        if ($this->request->isForm()) {
-            $data = $this->collectForm();
-            return $this->parseForm($data);
         }
 
         throw new ControllerException("HTTP Content Type '{$this->request->http_content_type}' is not allowed",
@@ -94,54 +83,6 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml, Par
             'external_id'   => $external_id,
             'date_of_birth' => $date_of_birth,
         ];
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     * @throws ControllerException
-     */
-    public function parseForm(array $data): array {
-        $this->validateForm($data);
-
-        $date_of_birth = (string)$data['date-of-birth'];
-        $date_of_birth = (new \DateTime($date_of_birth))->format('Y-m-d');
-
-        return [
-            'first_name'    => $data['first-name'],
-            'last_name'     => $data['last-name'],
-            'external_id'   => $data['external-id'],
-            'date_of_birth' => $date_of_birth,
-        ];
-    }
-
-    /**
-     * @param $data
-     *
-     * @return bool
-     * @throws ControllerException
-     */
-    private function validateForm($data) {
-        $required_fields = [
-            'first-name',
-            'last-name',
-            'external-id',
-            'date-of-birth',
-        ];
-
-        $missing_fields = [];
-        foreach ($required_fields as $required_field) {
-            if (!array_key_exists($required_field, $data)) {
-                $missing_fields[] = $required_field;
-            }
-        }
-        if (!empty($missing_fields)) {
-            $error_string = implode(", ", $missing_fields);
-            throw new ControllerException("Missing required fields: $error_string", self::HTTP_CLIENT_ERROR);
-        }
-
-        return true;
     }
 
     /**
