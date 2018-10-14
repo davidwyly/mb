@@ -15,7 +15,8 @@ class PatientTest extends TestCase
     {
         $data_fixture = file_get_contents(__DIR__ . '/fixtures/patient2.json');
         $json         = json_decode($data_fixture);
-        $parsed_data  = $this->callPrivateMethod(new PatientController(new MockRequest()), 'parseJson', [$json]);
+        $mock_request = new MockRequest('post', 'application/json', '/patient');
+        $parsed_data  = $this->callPrivateMethod(new PatientController($mock_request), 'parseJson', [$json]);
         $this->assertEquals([
             'first_name'    => 'Jane',
             'last_name'     => 'Doe',
@@ -33,7 +34,8 @@ class PatientTest extends TestCase
     {
         $data_fixture = file_get_contents(__DIR__ . '/fixtures/patient1.xml');
         $xml          = new \SimpleXMLElement($data_fixture);
-        $parsed_data  = $this->callPrivateMethod(new PatientController(new MockRequest()), 'parseXml', [$xml]);
+        $mock_request = new MockRequest('post', 'application/xml', '/patient');
+        $parsed_data  = $this->callPrivateMethod(new PatientController($mock_request), 'parseXml', [$xml]);
         $this->assertEquals([
             'first_name'    => 'Doe',
             'last_name'     => 'John',
