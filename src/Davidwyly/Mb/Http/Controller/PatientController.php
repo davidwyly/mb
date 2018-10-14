@@ -59,6 +59,10 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml, Par
             $json = $this->collectJson();
             return $this->parseJson($json);
         }
+        if ($this->request->isForm()) {
+            $json = $this->collectForm();
+            return $this->parseForm($json);
+        }
 
         throw new ControllerException("HTTP Content Type '{$this->request->http_content_type}' is not allowed",
             self::HTTP_CLIENT_ERROR);
