@@ -140,7 +140,8 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
      *
      * @throws ControllerException
      */
-    private function validateXml(\SimpleXMLElement $xml): void {
+    private function validateXml(\SimpleXMLElement $xml): void
+    {
         /** @noinspection PhpUndefinedFieldInspection */
         if (empty($xml->PatientDemographics->FirstName)
             || empty($xml->PatientDemographics->LastName)
