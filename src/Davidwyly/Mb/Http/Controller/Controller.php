@@ -19,6 +19,7 @@ abstract class Controller
 
     /**
      * Controller constructor.
+     *
      * @param Request $request
      */
     public function __construct(Request $request)

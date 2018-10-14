@@ -1,0 +1,28 @@
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "patientUid": "patientid478048293",
+  "primaryStudentId": 14420,
+  "clinicIds" : [1653],
+  "email" : "demo1@test.com",
+  "dateOfBirth":"1946-12-19T00:00:00+00:00",
+  "connectData" : {
+    "insurance":"medicare",
+    "gender":"Female",
+    "city": "kirkland",
+    "zipcode":"98119",
+    "state":"Washington",
+    "phone":"123-123-1234",
+    "caseStatus":"Active",
+    "bodyRegion": [
+      {"code":"m.213", "bodyRegion":"Shoulder"}
+    ],
+    "physicianName":"JUSTIN PENNINGTON",
+    "initialEvalDate":"2017-08-15T00:00:00+00:00",
+    "lastVisitDate":"2017-05-15T00:00:00+00:00",
+    "dischargeDate":"2017-02-15T00:00:00+00:00",
+    "referralDate":"2017-07-13T00:00:00+00:00",
+    "clinicId" : 1653,
+    "caseCreationDate":"2017-08-15T00:00:00+00:00"
+  }
+}
