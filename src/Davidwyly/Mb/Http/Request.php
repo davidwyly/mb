@@ -3,7 +3,15 @@
 namespace Davidwyly\Mb\Http;
 
 use Davidwyly\Mb\Exception\RequestException;
+use Davidwyly\Mb\Http\Controller\Controller;
 
+/**
+ * @property array $post
+ * @property array $get
+ * @property array $put
+ * @property array $patch
+ * @property array $delete
+ */
 class Request
 {
     const FORM_HTTP_CONTENT_TYPES = [
@@ -35,31 +43,6 @@ class Request
      * @var string
      */
     public $request_uri;
-
-    /**
-     * @var array
-     */
-    public $post = [];
-
-    /**
-     * @var array
-     */
-    public $get = [];
-
-    /**
-     * @var array
-     */
-    public $put = [];
-
-    /**
-     * @var array
-     */
-    public $patch = [];
-
-    /**
-     * @var array
-     */
-    public $delete = [];
 
     /**
      * Router constructor.
@@ -108,65 +91,45 @@ class Request
     }
 
     /**
-     * @throws RequestException
+     * Collects request data
      *
      * @return void
+     * @throws RequestException
      */
     private function loadRequest(): void
     {
-        switch ($this->request_method) {
-            case 'POST':
-                $this->getPost();
-                break;
-
-            /**
-             * TODO: currently unimplemented methods, add functionality as needed
-             */
-            case 'GET':
-                // no break
-            case 'PUT':
-                // no break
-            case 'PATCH':
-                // no break
-            case 'DELETE':
-                // no break
-            default:
-                throw new RequestException("Request method '$this->request_method' not currently supported");
+        // HTTP GET method does not have a body
+        if ($this->request_method == 'get') {
+            return;
         }
-    }
 
-    /**
-     * Collects POST data, depending on the context of the content type
-     *
-     * @return void
-     */
-    private function getPost(): void
-    {
         switch (true) {
             case $this->isForm():
-                $this->getFormPost();
+                $this->{$this->request_method} = $this->getFormInput();
                 break;
             case $this->isXml():
-                $this->post['xml'] = $this->getXmlInput();
+                $this->{$this->request_method}['xml'] = $this->getXmlInput();
                 break;
             case $this->isJson():
-                $this->post['json'] = $this->getJsonInput();
+                $this->{$this->request_method}['json'] = $this->getJsonInput();
                 break;
             default:
-                $this->post[$this->http_content_type] = $this->getPostInput();
+                $this->{$this->request_method}[$this->http_content_type] = $this->getRawInput();
         }
     }
 
     /**
      * Collects POST URL-encoded form fields and performs rudimentary sanitization
      *
-     * @return void
+     * @return array
      */
-    private function getFormPost(): void
+    private function getFormInput(): array
     {
+        $form_input = [];
         foreach ($_POST as $key => $value) {
-            $this->post[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            $form_input[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
         }
+        return $form_input;
     }
 
     /**
@@ -176,17 +139,22 @@ class Request
      */
     private function getXmlInput(): \SimpleXMLElement
     {
-        return new \SimpleXMLElement($this->getPostInput());
+        return new \SimpleXMLElement($this->getRawInput());
     }
 
     /**
      * Returns JSON content from POST
      *
      * @return \stdClass
+     * @throws RequestException
      */
     private function getJsonInput(): \stdClass
     {
-        return json_decode($this->getPostInput());
+        $json = json_decode($this->getRawInput());
+        if (is_null($json)) {
+            throw new RequestException("JSON could not be decoded", Controller::HTTP_CLIENT_ERROR);
+        }
+        return $json;
     }
 
     /**
@@ -194,7 +162,7 @@ class Request
      *
      * @return string
      */
-    private function getPostInput(): string
+    private function getRawInput(): string
     {
         return (string)file_get_contents("php://input");
 
@@ -209,7 +177,7 @@ class Request
         if (!isset($_SERVER['REQUEST_URI'])) {
             throw new RequestException("Request URI not found");
         }
-        return $_SERVER['REQUEST_URI'];
+        return mb_strtolower($_SERVER['REQUEST_URI']);
     }
 
     /**
@@ -221,7 +189,7 @@ class Request
         if (!isset($_SERVER['REQUEST_METHOD'])) {
             throw new RequestException("Request method not found");
         }
-        return $_SERVER['REQUEST_METHOD'];
+        return mb_strtolower($_SERVER['REQUEST_METHOD']);
     }
 
     /**
@@ -233,6 +201,6 @@ class Request
         if (!isset($_SERVER['HTTP_CONTENT_TYPE'])) {
             throw new RequestException("HTTP Content Type not found");
         }
-        return $_SERVER['HTTP_CONTENT_TYPE'];
+        return mb_strtolower($_SERVER['HTTP_CONTENT_TYPE']);
     }
 }

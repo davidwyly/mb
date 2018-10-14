@@ -16,6 +16,7 @@
     "ext-simplexml": "*",
     "ext-ctype": "*",
     "ext-mbstring": "*",
+    "ext-pdo": "*",
     "vlucas/phpdotenv": "^2.5",
     "league/oauth2-server": "^7.2"
   },

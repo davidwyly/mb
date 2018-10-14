@@ -23,7 +23,9 @@ class Patient extends DataModel
     {
         $this->validateData($data);
         /**
-         * TODO: write the data in the database, or pass the data on to another integration
+         * TODO: write the data in the database, or pass the data on to another integration to store the data
+         *
+         * For now we're going to just assume that this operation is always successful as long as it validates
          */
         return true;
     }
