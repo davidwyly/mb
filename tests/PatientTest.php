@@ -47,6 +47,29 @@ class PatientTest extends TestCase
     }
 
     /**
+     * @throws Exception
+     */
+    public function testForm()
+    {
+        $data         = [
+            'first-name'    => 'Bob',
+            'last-name'     => 'Smith',
+            'external-id'   => '987654321',
+            'date-of-birth' => '01/01/1980',
+        ];
+        $mock_request = new MockRequest('post', 'application/x-www-form-urlencoded', '/patient');
+        $parsed_data  = $this->callPrivateMethod(new PatientController($mock_request), 'parseForm', [$data]);
+        $this->assertEquals([
+            'first_name'    => 'Bob',
+            'last_name'     => 'Smith',
+            'external_id'   => '987654321',
+            'date_of_birth' => '1980-01-01',
+        ], $parsed_data);
+        $passed_validation = (new Patient())->create($parsed_data);
+        $this->assertTrue($passed_validation);
+    }
+
+    /**
      * @param $object
      * @param $method_name
      *
