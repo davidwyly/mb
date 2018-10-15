@@ -1,5 +1,7 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/davidwyly/mb.svg)](https://github.com/davidwyly/mb) 
-[![GitHub language count](https://img.shields.io/github/languages/count/davidwyly/mb.svg)](https://github.com/davidwyly/mb) [![GitHub](https://img.shields.io/github/license/davidwyly/mb.svg)](https://github.com/davidwyly/mb)
+[![GitHub language count](https://img.shields.io/github/languages/count/davidwyly/mb.svg)](https://github.com/davidwyly/mb) [![GitHub](https://img.shields.io/github/license/davidwyly/mb.svg)](https://github.com/davidwyly/mb) 
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/davidwyly/mb.svg)](https://github.com/davidwyly/mb/pulls)
+
 
 <a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/gpa.svg" /></a></a>
 <a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/issue_count.svg" /></a> [![Code Climate](https://img.shields.io/codeclimate/tech-debt/davidwyly/mb.svg)](https://codeclimate.com/github/davidwyly/mb) 
