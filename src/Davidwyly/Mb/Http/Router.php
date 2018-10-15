@@ -74,10 +74,9 @@ class Router
      */
     private function renderUnsupportedEndpointMethod(string $request_method): void
     {
-        foreach (self::SUPPORTED_METHODS as $supported_method) {
-            if ($supported_method == $request_method) {
-                continue;
-            }
+        $supported_methods = self::SUPPORTED_METHODS;
+        unset($supported_methods[$request_method]);
+        foreach ($supported_methods as $supported_method) {
             if (array_key_exists($this->request->request_uri, (array)$this->{$supported_method})) {
                 http_response_code(Controller::HTTP_METHOD_NOT_ALLOWED);
                 die(json_encode(['error' => "HTTP Method '$request_method' not allowed"], JSON_PRETTY_PRINT));
