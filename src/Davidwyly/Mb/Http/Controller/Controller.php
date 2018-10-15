@@ -6,11 +6,13 @@ use Davidwyly\Mb\Http\Request;
 
 abstract class Controller
 {
-    const HTTP_SUCCESS      = 200;
-    const HTTP_CREATED      = 201;
-    const HTTP_CLIENT_ERROR = 400;
-    const HTTP_NOT_FOUND    = 404;
-    const HTTP_SERVER_ERROR = 500;
+    const HTTP_SUCCESS               = 200;
+    const HTTP_CREATED               = 201;
+    const HTTP_CLIENT_ERROR          = 400;
+    const HTTP_NOT_FOUND             = 404;
+    const HTTP_METHOD_NOT_ALLOWED    = 405;
+    const HTTP_UNACCEPTED_MEDIA_TYPE = 415;
+    const HTTP_SERVER_ERROR          = 500;
 
     /**
      * @var Request
@@ -39,11 +41,10 @@ abstract class Controller
 
     /**
      * @param \Exception $e
-     * @param int        $http_response_code
      */
-    protected function renderFail(\Exception $e, $http_response_code = self::HTTP_SERVER_ERROR): void
+    protected function renderFail(\Exception $e): void
     {
-        http_response_code($http_response_code);
+        http_response_code($e->getCode());
         die(json_encode(['error' => $e->getMessage()], JSON_PRETTY_PRINT));
     }
 }

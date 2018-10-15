@@ -15,7 +15,9 @@ use Davidwyly\Mb\Http\Controller\Controller;
 class Request
 {
     const FORM_HTTP_CONTENT_TYPES = [
+        'text/form-data',
         'application/form-data',
+        'text/x-www-form-urlencoded',
         'application/x-www-form-urlencoded',
     ];
 

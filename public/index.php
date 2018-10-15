@@ -17,5 +17,6 @@ try {
     });
 
 } catch (\Exception $e) {
+    http_response_code($e->getCode());
     die(json_encode(['error' => $e->getMessage()], JSON_PRETTY_PRINT));
 }
