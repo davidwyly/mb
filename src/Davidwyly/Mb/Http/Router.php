@@ -31,9 +31,9 @@ class Router
         $this->request = $request;
     }
 
-    public function __call($name, $arguments)
+    public function __call($method, $arguments)
     {
-        if (in_array($name, self::SUPPORTED_METHODS)
+        if (in_array($method, self::SUPPORTED_METHODS)
             && count($arguments) === 2
         ) {
             list($route, $callback) = $arguments;
