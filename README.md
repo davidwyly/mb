@@ -1,5 +1,7 @@
 <a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/gpa.svg" /></a></a>
-<a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/issue_count.svg" /></a> [![Code Climate](https://img.shields.io/codeclimate/tech-debt/davidwyly/mb.svg)](https://codeclimate.com/github/davidwyly/mb)
+<a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/issue_count.svg" /></a> [![Code Climate](https://img.shields.io/codeclimate/tech-debt/davidwyly/mb.svg)](https://codeclimate.com/github/davidwyly/mb) 
+[![GitHub](https://img.shields.io/github/license/davidwyly/mb.svg)](https://github.com/davidwyly/mb)
+
 
 
 ## Summary
