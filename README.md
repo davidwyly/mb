@@ -9,7 +9,16 @@ This is an example project that transforms POST data of different content types 
    "date_of_birth":"2000-01-31" // Patient's date of birth
 }
 ```
-   
+
+## Project Structure
+- Environment variables go into `/config/.env` and newly-required `.env` definitions are checked into `/config/bootstrap.php`
+- Routes for all endpoints are declared in `/public/index.php`
+- PSR4 namespacing is used in the `src` directory for all other project-related files
+    - e.g., The `Davidwyly\Mb\Http\Controller\PatientController` class is located at `/src/Davidwyly/Mb/Http/Controller/PatientController.php`
+- Tests are located in `/tests`
+    - Test fixtures in `/tests/fixtures`
+    - Mock objects are located in same directory of the class being mocked
+
 ## Installation
 While this project does not have to be installed in order to be evaluated, I have set up docker so that you can more easily run and test the service yourself.
 
@@ -61,12 +70,3 @@ These installation instructions assume that the following is already installed o
    5. Click `Add`
    6. Select the environment from the drop-down in the top-right corner
 3. Requests can be found within the `Mb` collection
-
-## Project Structure
-- Environment variables go into `/config/.env` and newly-required `.env` definitions are checked into `/config/bootstrap.php`
-- Routes for all endpoints are declared in `/public/index.php`
-- PSR4 namespacing is used in the `src` directory for all other project-related files
-    - e.g., The `Davidwyly\Mb\Http\Controller\PatientController` class is located at `/src/Davidwyly/Mb/Http/Controller/PatientController.php`
-- Tests are located in `/tests`
-    - Test fixtures in `/tests/fixtures`
-    - Mock objects are located in same directory of the class being mocked
