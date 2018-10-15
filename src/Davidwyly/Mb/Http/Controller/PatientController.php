@@ -7,7 +7,7 @@ use Davidwyly\Mb\Http\Controller\Collect;
 use Davidwyly\Mb\Http\Controller\Parse;
 use Davidwyly\Mb\Exception\ControllerException;
 
-class PatientController extends Controller implements Parse\Json, Parse\Xml
+class PatientController extends Controller implements Parse\Json, Parse\Xml, Parse\Form
 {
     /**
      * Trait to collect JSON from the controller's request
@@ -22,6 +22,13 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
      * @see collectXml()
      */
     use Collect\Xml;
+
+    /**
+     * Trait to collect form data from the controller's request
+     *
+     * @see collectForm()
+     */
+    use Collect\Form;
 
     /**
      * Create controller action
@@ -51,6 +58,10 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
         if ($this->request->isJson()) {
             $json = $this->collectJson();
             return $this->parseJson($json);
+        }
+        if ($this->request->isForm()) {
+            $json = $this->collectForm();
+            return $this->parseForm($json);
         }
 
         throw new ControllerException("HTTP Content Type '{$this->request->http_content_type}' is not accepted",
@@ -110,6 +121,25 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
     }
 
     /**
+     * @param array $data
+     *
+     * @return array
+     * @throws ControllerException
+     */
+    public function parseForm(array $data): array
+    {
+        $this->validateForm($data);
+        $date_of_birth = (new \DateTime($data['date-of-birth']))->format('Y-m-d');
+
+        return [
+            'first_name'    => $data['first-name'],
+            'last_name'     => $data['last-name'],
+            'external_id'   => $data['external-id'],
+            'date_of_birth' => $date_of_birth,
+        ];
+    }
+
+    /**
      * @param \stdClass $json
      *
      * @throws ControllerException
@@ -149,6 +179,32 @@ class PatientController extends Controller implements Parse\Json, Parse\Xml
             || empty($xml->PatientDemographics->DOB)
         ) {
             throw new ControllerException("Missing required fields, verify contract", self::HTTP_CLIENT_ERROR);
+        }
+    }
+
+    /**
+     * @param array $data
+     *
+     * @throws ControllerException
+     */
+    private function validateForm(array $data): void
+    {
+        $required_fields = [
+            'first-name',
+            'last-name',
+            'external-id',
+            'date-of-birth',
+        ];
+
+        $missing_fields = [];
+        foreach ($required_fields as $required_field) {
+            if (!array_key_exists($required_field, $data)) {
+                $missing_fields[] = $required_field;
+            }
+        }
+        if (!empty($missing_fields)) {
+            $error_string = implode(", ", $missing_fields);
+            throw new ControllerException("Missing required fields: $error_string", self::HTTP_CLIENT_ERROR);
         }
     }
 }
