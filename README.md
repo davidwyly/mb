@@ -24,7 +24,7 @@ This is an example project that transforms POST data of different content types 
     - e.g., The `Davidwyly\Mb\Http\Controller\PatientController` class is located at `/src/Davidwyly/Mb/Http/Controller/PatientController.php`
 - Tests are located in `/tests`
     - Test fixtures in `/tests/fixtures`
-    - Mock objects are located in same directory of the class being mocked
+    - Mock objects are located in `/src/Davidwyly/Mb/Mock`
 
 ## Installation
 While this project does not have to be installed in order to be evaluated, I have set up docker so that you can more easily run and test the service yourself.
