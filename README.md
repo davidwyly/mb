@@ -1,3 +1,6 @@
+<a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/gpa.svg" /></a></a>
+<a href="https://codeclimate.com/github/davidwyly/mb"><img src="https://codeclimate.com/github/davidwyly/mb/badges/issue_count.svg" /></a>
+
 ## Summary
 This is an example project that transforms POST data of different content types (e.g., XML, JSON) from a third-party system into the following JSON response:
 
