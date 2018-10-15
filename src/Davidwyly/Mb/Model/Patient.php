@@ -32,17 +32,34 @@ class Patient extends DataModel
 
     /**
      * @param $data
+     *
      * @throws \Exception
      */
-    private function validateData($data): void
+    private function validateData(array $data): void
     {
-        $required_keys = [
+        $this->validateRequiredKeys([
             'first_name',
             'last_name',
             'external_id',
             'date_of_birth',
-        ];
+        ], $data);
+        if (!$this->isValidExternalId($data['external_id'])) {
+            throw new ModelException("External ID '{$data['external_id']}' is invalid");
+        }
 
+        if (!$this->isValidDateOfBirth($data['date_of_birth'])) {
+            throw new ModelException("Date of Birth '{$data['date_of_birth']}' is invalid");
+        }
+    }
+
+    /**
+     * @param array $required_keys
+     * @param array $data
+     *
+     * @throws ModelException
+     */
+    private function validateRequiredKeys(array $required_keys, array $data): void
+    {
         foreach ($required_keys as $required_key) {
             if (!array_key_exists($required_key, $data)) {
                 throw new ModelException("Required key '$required_key' is missing from parsed data");
@@ -50,14 +67,6 @@ class Patient extends DataModel
             if (empty($data[$required_key])) {
                 throw new ModelException("Key '$required_key' cannot be empty");
             }
-        }
-
-        if (!$this->isValidExternalId($data['external_id'])) {
-            throw new ModelException("External ID '{$data['external_id']}' is invalid");
-        }
-
-        if (!$this->isValidDateOfBirth($data['date_of_birth'])) {
-            throw new ModelException("Date of Birth '{$data['date_of_birth']}' is invalid");
         }
     }
 
