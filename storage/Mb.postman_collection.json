@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "dda2ab46-963d-4b90-8bef-628c06848da0",
+		"name": "Mb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "XML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<TSADTOUT>\r\n  <FileCreated>2016-09-14T06:28:22.0001991-05:00</FileCreated>\r\n  <FileName>98001048621_TESTSYS_2016-09-14T06.28.22.00.xml</FileName>\r\n  <FileVersion>3.2</FileVersion>\r\n  <SendingApplication>ExampleEMR</SendingApplication>\r\n  <SendingAppVersion>5.70</SendingAppVersion>\r\n  <SendingCorporation>9800</SendingCorporation>\r\n  <SendingFacilityUID>98001</SendingFacilityUID>\r\n  <EventType>ADT</EventType>\r\n  <EventTrigger>Update</EventTrigger>\r\n  <EventTriggerUser>CORP\\TSDev_COMPlus</EventTriggerUser>\r\n  <EventMethod>ADT Inbound</EventMethod>\r\n  <ReceivingApplication>TESTSYS</ReceivingApplication>\r\n  <UniqueIdentifiers>\r\n    <MasterPatient>\r\n      <MasterPatientID>123</MasterPatientID>\r\n      <PatientSystemName>TherapySource</PatientSystemName>\r\n      <PatientDisplayName>Patient ID</PatientDisplayName>\r\n      <PatientAttributeName>CorpPatientKey</PatientAttributeName>\r\n    </MasterPatient>\r\n    <MasterCase>\r\n      <MasterCaseID>456</MasterCaseID>\r\n      <CaseSystemName>TherapySource</CaseSystemName>\r\n      <CaseDisplayName>Case ID</CaseDisplayName>\r\n      <CaseAttributeName>CorpCaseKey</CaseAttributeName>\r\n    </MasterCase>\r\n  </UniqueIdentifiers>\r\n  <PatientDemographics>\r\n    <LastName>John</LastName>\r\n    <FirstName>Doe</FirstName>\r\n    <MiddleInitial></MiddleInitial>\r\n    <PatientKey>1048609</PatientKey>\r\n    <PatientUID>98001048609</PatientUID>\r\n    <Gender>Male</Gender>\r\n    <DOB>1980-10-12T00:00:00</DOB>\r\n    <SSN>408530450</SSN>\r\n    <Occupation></Occupation>\r\n    <Employer>ShopKo</Employer>\r\n    <PatientType>Production</PatientType>\r\n    <PatientComments></PatientComments>\r\n    <AdmittingFacility>Rose Facility</AdmittingFacility>\r\n    <AdmittingFacilityKey>1</AdmittingFacilityKey>\r\n    <AdmittingFacilityUID>98001</AdmittingFacilityUID>\r\n    <AddressLine1>123 Oak Lane</AddressLine1>\r\n    <AddressLine2></AddressLine2>\r\n    <City>Seattle</City>\r\n    <State>WA</State>\r\n    <Country>USA</Country>\r\n    <ZipCode>98119</ZipCode>\r\n    <Phone>9847592375</Phone>\r\n    <BusinessPhone>5555248261</BusinessPhone>\r\n    <MobilePhone></MobilePhone>\r\n    <MobileTextAvailable>false</MobileTextAvailable>\r\n    <Email>sdrake@aol.com</Email>\r\n    <PreferredLanguage></PreferredLanguage>\r\n    <PreferredContact></PreferredContact>\r\n    <PrivacyNotified>false</PrivacyNotified>\r\n    <PrivacyNotifiedDate>2016-09-14T01:47:48</PrivacyNotifiedDate>\r\n    <NoApptReminder>false</NoApptReminder>\r\n  </PatientDemographics>\r\n  <PatientCase>\r\n    <CaseKey>1048621</CaseKey>\r\n    <CaseUID>98001048621</CaseUID>\r\n    <Discipline>PT</Discipline>\r\n    <ReferringPhysician>\r\n      <ReferredByPhysician>false</ReferredByPhysician>\r\n      <NextAppointment></NextAppointment>\r\n      <CasePriPhysLastName></CasePriPhysLastName>\r\n      <CasePriPhysFirstName></CasePriPhysFirstName>\r\n      <CasePriPhysMiddleInitial></CasePriPhysMiddleInitial>\r\n      <CasePriPhysKey></CasePriPhysKey>\r\n      <CasePriPhysUID></CasePriPhysUID>\r\n      <CaseSecPhyPhysLastName></CaseSecPhyPhysLastName>\r\n      <CaseSecPhysFirstName></CaseSecPhysFirstName>\r\n      <CaseSecPhysMiddleInitial></CaseSecPhysMiddleInitial>\r\n      <CaseSecPhysKey></CaseSecPhysKey>\r\n      <CaseSecPhysUID></CaseSecPhysUID>\r\n      <CurrentReferral>\r\n        <ReferralSeq></ReferralSeq>\r\n        <ReferralPriPhysLastName></ReferralPriPhysLastName>\r\n        <ReferralPriPhysFirstName></ReferralPriPhysFirstName>\r\n        <ReferralPriPhysMiddleInitial></ReferralPriPhysMiddleInitial>\r\n        <ReferralPriPhysKey></ReferralPriPhysKey>\r\n        <ReferralPriPhysUID></ReferralPriPhysUID>\r\n        <ReferralSecPhysLastName></ReferralSecPhysLastName>\r\n        <ReferralSecPhysFirstName></ReferralSecPhysFirstName>\r\n        <ReferralSecPhysMiddleInitial></ReferralSecPhysMiddleInitial>\r\n        <ReferralSecPhysKey></ReferralSecPhysKey>\r\n        <ReferralSecPhysUID></ReferralSecPhysUID>\r\n        <ReferralStartDate></ReferralStartDate>\r\n        <ReferralEndDate></ReferralEndDate>\r\n        <AuthType></AuthType>\r\n        <MaxVisitsPerWeek></MaxVisitsPerWeek>\r\n        <MaxWeeks></MaxWeeks>\r\n        <ReferralComments></ReferralComments>\r\n      </CurrentReferral>\r\n      <CurrentTrackedPOC>\r\n        <POCSeq></POCSeq>\r\n        <POCPriPhysLastName></POCPriPhysLastName>\r\n        <POCPriPhysFirstName></POCPriPhysFirstName>\r\n        <POCPriPhysMiddleInitial></POCPriPhysMiddleInitial>\r\n        <POCPriPhysKey></POCPriPhysKey>\r\n        <POCPriPhysUID></POCPriPhysUID>\r\n        <POCSecPhysLastName></POCSecPhysLastName>\r\n        <POCSecPhysFirstName></POCSecPhysFirstName>\r\n        <POCSecPhysMiddleInitial></POCSecPhysMiddleInitial>\r\n        <POCSecPhysKey></POCSecPhysKey>\r\n        <POCSecPhysUID></POCSecPhysUID>\r\n        <EvalCreateDate></EvalCreateDate>\r\n        <POCStartDate></POCStartDate>\r\n        <POCEndDate></POCEndDate>\r\n        <POCFrequency></POCFrequency>\r\n        <POCDuration></POCDuration>\r\n        <POCSent></POCSent>\r\n        <POCSentDate></POCSentDate>\r\n        <POCSentUser></POCSentUser>\r\n        <POCSentComment></POCSentComment>\r\n        <POCCertDate></POCCertDate>\r\n        <POCCertUser></POCCertUser>\r\n        <POCCertComment></POCCertComment>\r\n        <POCAttestedDate></POCAttestedDate>\r\n        <POCAttestedUser></POCAttestedUser>\r\n        <POCAttestedComment></POCAttestedComment>\r\n        <POCVoidedDate></POCVoidedDate>\r\n        <POCVoidedUser></POCVoidedUser>\r\n        <POCVoidedComment></POCVoidedComment>\r\n        <DelayedCerts />\r\n      </CurrentTrackedPOC>\r\n    </ReferringPhysician>\r\n    <ClinicalInfo>\r\n      <RegionsDiagnoses>\r\n        <RegionDiagnosis>\r\n          <Region>Elbow</Region>\r\n          <RegionSeq>1</RegionSeq>\r\n          <Side>Both</Side>\r\n          <Diagnosis>(Idiopathic) normal pressure hydrocephalus</Diagnosis>\r\n          <Source>Physician</Source>\r\n          <Status>Verified</Status>\r\n          <PT25Status>3</PT25Status>\r\n          <Type>Primary</Type>\r\n          <ICDCode>G912</ICDCode>\r\n          <CodeSetName>ICD-10-CM</CodeSetName>\r\n          <CodeSetVersion>10</CodeSetVersion>\r\n          <DisplayCode>G912</DisplayCode>\r\n          <OnsetDate>2016-09-01T00:00:00</OnsetDate>\r\n          <StartOfCareDate>2016-09-01T00:00:00</StartOfCareDate>\r\n          <ResolvedDate></ResolvedDate>\r\n          <VisitReason>false</VisitReason>\r\n          <ExtCause>false</ExtCause>\r\n          <MedDiag>false</MedDiag>\r\n          <ImpDiag>false</ImpDiag>\r\n        </RegionDiagnosis>\r\n      </RegionsDiagnoses>\r\n      <AdditionalCaseInfo>\r\n        <CaseStatus>Active</CaseStatus>\r\n        <InitialEvalDate>2016-09-14T00:00:00</InitialEvalDate>\r\n        <LastReEvalDate></LastReEvalDate>\r\n        <LastProgNote></LastProgNote>\r\n        <DischargeDate></DischargeDate>\r\n        <LastVisitDate>2016-09-14T00:00:00</LastVisitDate>\r\n        <TotalVisits>1</TotalVisits>\r\n        <TotalCancelNoShows>0</TotalCancelNoShows>\r\n        <InjuryDate></InjuryDate>\r\n        <SurgeryDate></SurgeryDate>\r\n        <ClinicalComments></ClinicalComments>\r\n      </AdditionalCaseInfo>\r\n    </ClinicalInfo>\r\n    <InsuranceInfo>\r\n      <FSC>BCBS</FSC>\r\n      <PayorName></PayorName>\r\n      <InsuredName></InsuredName>\r\n      <PolicyNumber></PolicyNumber>\r\n      <CaseMgr></CaseMgr>\r\n      <CaseMgrPhone></CaseMgrPhone>\r\n      <CaseMgrFax></CaseMgrFax>\r\n      <InsuranceComments></InsuranceComments>\r\n      <ProductLine></ProductLine>\r\n      <HIAuthRequired>false</HIAuthRequired>\r\n      <HIVisitLimit></HIVisitLimit>\r\n      <HIExpDate></HIExpDate>\r\n      <FinRespRqd>false</FinRespRqd>\r\n      <CoPayAmt></CoPayAmt>\r\n      <CoPayAmtFreq></CoPayAmtFreq>\r\n      <CoPayPercent></CoPayPercent>\r\n      <CoPayPercentFreq></CoPayPercentFreq>\r\n      <DeductibleAmt></DeductibleAmt>\r\n    </InsuranceInfo>\r\n    <AccountList>\r\n      <Account>\r\n        <Account>19100000000001</Account>\r\n        <AcctEffDate></AcctEffDate>\r\n        <AcctExpDate></AcctExpDate>\r\n        <AcctDescription></AcctDescription>\r\n        <AcctCreatedBy>CORP\\TSDev_COMPlus</AcctCreatedBy>\r\n        <AcctCreateDate>2016-09-14T01:47:07.69</AcctCreateDate>\r\n        <AcctLastChgBy></AcctLastChgBy>\r\n        <AcctLastChgDate></AcctLastChgDate>\r\n        <AcctActive>1</AcctActive>\r\n        <AcctSeq>1</AcctSeq>\r\n      </Account>\r\n      <Account>\r\n        <Account>191000000001</Account>\r\n        <AcctEffDate></AcctEffDate>\r\n        <AcctExpDate></AcctExpDate>\r\n        <AcctDescription></AcctDescription>\r\n        <AcctCreatedBy>CORP\\dykhnilv</AcctCreatedBy>\r\n        <AcctCreateDate>2016-09-14T01:49:57.727</AcctCreateDate>\r\n        <AcctLastChgBy></AcctLastChgBy>\r\n        <AcctLastChgDate>2016-09-14T01:51:51.973</AcctLastChgDate>\r\n        <AcctActive>1</AcctActive>\r\n        <AcctSeq>2</AcctSeq>\r\n      </Account>\r\n    </AccountList>\r\n    <AccountInfo>\r\n      <FacilityPermissions>\r\n        <Facility>Rose Facility</Facility>\r\n        <FacilityKey>1</FacilityKey>\r\n        <FacilityUID>98001</FacilityUID>\r\n        <CurrentAccount>\r\n          <Account>191000000001</Account>\r\n          <AcctEffDate></AcctEffDate>\r\n          <AcctExpDate></AcctExpDate>\r\n          <AcctDescription></AcctDescription>\r\n          <AcctCreatedBy>CORP\\dykhnilv</AcctCreatedBy>\r\n          <AcctCreateDate>2016-09-14T01:49:57.727</AcctCreateDate>\r\n          <AcctLastChgBy></AcctLastChgBy>\r\n          <AcctLastChgDate>2016-09-14T01:51:51.973</AcctLastChgDate>\r\n          <AcctActive>1</AcctActive>\r\n          <AcctSeq>2</AcctSeq>\r\n        </CurrentAccount>\r\n        <AccessPermissions>Edit Patient/Case; Create Clinical Notes</AccessPermissions>\r\n      </FacilityPermissions>\r\n      <CheckedOut>\r\n        <COFacility>Rose Facility</COFacility>\r\n        <COFacilityKey>1</COFacilityKey>\r\n        <COFacilityUID>98001</COFacilityUID>\r\n        <COClinicianLastName>Dykhnilkin</COClinicianLastName>\r\n        <COClinicianFirstName>Valerius</COClinicianFirstName>\r\n        <COClinicianMiddleInitial></COClinicianMiddleInitial>\r\n        <COClinicianKey>1633681409</COClinicianKey>\r\n        <COClinicianUID>98001633681409</COClinicianUID>\r\n        <CODate>2016-09-14T01:49:00</CODate>\r\n        <COMachineID>WIN7CLIENT-TSIO</COMachineID>\r\n      </CheckedOut>\r\n      <Responsibility>\r\n        <RespFacility>Rose Facility</RespFacility>\r\n        <RespFacilityKey>1</RespFacilityKey>\r\n        <RespFacilityUID>98001</RespFacilityUID>\r\n        <RespClinicianLastName>Dykhnilkin</RespClinicianLastName>\r\n        <RespClinicianFirstName>Valerius</RespClinicianFirstName>\r\n        <RespClinicianMiddleInitial></RespClinicianMiddleInitial>\r\n        <RespClinicianKey>1633681409</RespClinicianKey>\r\n        <RespClinicianUID>98001633681409</RespClinicianUID>\r\n      </Responsibility>\r\n    </AccountInfo>\r\n    <NoteHistory>\r\n      <Note>\r\n        <NoteType>Initial Evaluation</NoteType>\r\n        <NoteSeq>1</NoteSeq>\r\n        <NoteClosed>Closed</NoteClosed>\r\n        <VisitDate>2016-09-14T00:00:00</VisitDate>\r\n        <AccountNumber>191000000001</AccountNumber>\r\n        <ClinicianLastName>Dykhnilkin</ClinicianLastName>\r\n        <ClinicianFirstName>Valerius</ClinicianFirstName>\r\n        <ClinicianMiddleInitial></ClinicianMiddleInitial>\r\n        <ClinicianKey>1633681409</ClinicianKey>\r\n        <ClinicianUID>98001633681409</ClinicianUID>\r\n        <Facility>Rose Facility</Facility>\r\n        <FacilityKey>1</FacilityKey>\r\n        <FacilityUID>98001</FacilityUID>\r\n        <CreateDate>2016-09-14T00:00:00</CreateDate>\r\n        <SignOffDate>2016-09-14T01:51:48</SignOffDate>\r\n        <AssemblyDate>2016-09-14T02:04:37.747</AssemblyDate>\r\n      </Note>\r\n      <Note>\r\n        <NoteType>Plan of Care</NoteType>\r\n        <NoteSeq>2</NoteSeq>\r\n        <NoteClosed>Closed</NoteClosed>\r\n        <VisitDate>2016-09-14T00:00:00</VisitDate>\r\n        <AccountNumber>191000000001</AccountNumber>\r\n        <ClinicianLastName>Dykhnilkin</ClinicianLastName>\r\n        <ClinicianFirstName>Valerius</ClinicianFirstName>\r\n        <ClinicianMiddleInitial></ClinicianMiddleInitial>\r\n        <ClinicianKey>1633681409</ClinicianKey>\r\n        <ClinicianUID>98001633681409</ClinicianUID>\r\n        <Facility>Rose Facility</Facility>\r\n        <FacilityKey>1</FacilityKey>\r\n        <FacilityUID>98001</FacilityUID>\r\n        <CreateDate>2016-09-14T00:00:00</CreateDate>\r\n        <SignOffDate>2016-09-14T01:51:48</SignOffDate>\r\n        <AssemblyDate>2016-09-14T02:04:31.577</AssemblyDate>\r\n      </Note>\r\n    </NoteHistory>\r\n    <PrivacyInfo>\r\n      <PrivacyAuthorizations />\r\n      <PrivacyDisclosures />\r\n    </PrivacyInfo>\r\n  </PatientCase>\r\n  <ExternalAttributes>\r\n    <ExtCorpAttributes />\r\n    <ExtPatientAttributes />\r\n    <ExtAdmittingFacilityAttributes>\r\n      <ExternalAttribute>\r\n        <ClinicKey>1</ClinicKey>\r\n        <ExternalSystemName>TESTSYS</ExternalSystemName>\r\n        <ExternalSystemID>1</ExternalSystemID>\r\n        <ExternalAttributeName>API-Key</ExternalAttributeName>\r\n        <ExternalAttributeValue>acf78021-546a-40c1-8f85-de5ebc78e82b</ExternalAttributeValue>\r\n        <ExternalAttributeIsUnique>false</ExternalAttributeIsUnique>\r\n      </ExternalAttribute>\r\n    </ExtAdmittingFacilityAttributes>\r\n    <ExtCaseAttributes />\r\n    <ExtCasePriPhysAttributes />\r\n    <ExtCaseSecPhysAttributes />\r\n    <ExtReferralPriPhysAttributes />\r\n    <ExtReferralSecPhysAttributes />\r\n    <ExtPOCPriPhysAttributes />\r\n    <ExtPOCSecPhysAttributes />\r\n    <ExtFacilityAttributes>\r\n      <ExternalAttribute>\r\n        <ClinicKey>1</ClinicKey>\r\n        <ExternalSystemName>TESTSYS</ExternalSystemName>\r\n        <ExternalSystemID>1</ExternalSystemID>\r\n        <ExternalAttributeName>API-Key</ExternalAttributeName>\r\n        <ExternalAttributeValue>acf78021-546a-40c1-8f85-de5ebc78e82b</ExternalAttributeValue>\r\n        <ExternalAttributeIsUnique>false</ExternalAttributeIsUnique>\r\n      </ExternalAttribute>\r\n    </ExtFacilityAttributes>\r\n    <ExtCOFacilityAttributes>\r\n      <ExternalAttribute>\r\n        <ClinicKey>1</ClinicKey>\r\n        <ExternalSystemName>TESTSYS</ExternalSystemName>\r\n        <ExternalSystemID>1</ExternalSystemID>\r\n        <ExternalAttributeName>API-Key</ExternalAttributeName>\r\n        <ExternalAttributeValue>acf78021-546a-40c1-8f85-de5ebc78e82b</ExternalAttributeValue>\r\n        <ExternalAttributeIsUnique>false</ExternalAttributeIsUnique>\r\n      </ExternalAttribute>\r\n    </ExtCOFacilityAttributes>\r\n    <ExtCOClinicianAttributes />\r\n    <ExtRespFacilityAttributes>\r\n      <ExternalAttribute>\r\n        <ClinicKey>1</ClinicKey>\r\n        <ExternalSystemName>TESTSYS</ExternalSystemName>\r\n        <ExternalSystemID>1</ExternalSystemID>\r\n        <ExternalAttributeName>API-Key</ExternalAttributeName>\r\n        <ExternalAttributeValue>acf78021-546a-40c1-8f85-de5ebc78e82b</ExternalAttributeValue>\r\n        <ExternalAttributeIsUnique>false</ExternalAttributeIsUnique>\r\n      </ExternalAttribute>\r\n    </ExtRespFacilityAttributes>\r\n    <ExtRespClinicianAttributes />\r\n    <ExtNoteHistoryCliniciansAttributes />\r\n    <ExtNoteHistoryFacilitiesAttributes>\r\n      <ExternalAttribute>\r\n        <ClinicKey>1</ClinicKey>\r\n        <ExternalSystemName>TESTSYS</ExternalSystemName>\r\n        <ExternalSystemID>1</ExternalSystemID>\r\n        <ExternalAttributeName>API-Key</ExternalAttributeName>\r\n        <ExternalAttributeValue>acf78021-546a-40c1-8f85-de5ebc78e82b</ExternalAttributeValue>\r\n        <ExternalAttributeIsUnique>false</ExternalAttributeIsUnique>\r\n      </ExternalAttribute>\r\n    </ExtNoteHistoryFacilitiesAttributes>\r\n    <ExtDisciplineAttributes />\r\n  </ExternalAttributes>\r\n</TSADTOUT>"
+				},
+				"url": {
+					"raw": "localhost:8080/patient",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Jane\", \n    \"lastName\": \"Doe\",\n    \"patientUid\": \"patientid478048293\",\n    \"primaryStudentId\": 14420,\n    \"clinicIds\" : [1653],\n    \"email\" : \"demo1@test.com\",\n    \"dateOfBirth\":\"1946-12-19T00:00:00+00:00\",\n    \"connectData\" : {\n        \"insurance\":\"medicare\",\n        \"gender\":\"Female\",\n        \"city\": \"kirkland\",\n        \"zipcode\":\"98119\",\n        \"state\":\"Washington\",\n        \"phone\":\"123-123-1234\",\n        \"caseStatus\":\"Active\",\n        \"bodyRegion\": [\n            {\"code\":\"m.213\", \"bodyRegion\":\"Shoulder\"}\n        ],\n        \"physicianName\":\"JUSTIN PENNINGTON\",\n        \"initialEvalDate\":\"2017-08-15T00:00:00+00:00\",\n        \"lastVisitDate\":\"2017-05-15T00:00:00+00:00\",\n        \"dischargeDate\":\"2017-02-15T00:00:00+00:00\",\n        \"referralDate\":\"2017-07-13T00:00:00+00:00\",\n        \"clinicId\" : 1653,\n        \"caseCreationDate\":\"2017-08-15T00:00:00+00:00\"\n    }\n}\n"
+				},
+				"url": {
+					"raw": "localhost:8080/patient",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Form (new http content type)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first-name",
+							"value": "Bob",
+							"type": "text"
+						},
+						{
+							"key": "last-name",
+							"value": "Smith",
+							"type": "text"
+						},
+						{
+							"key": "external-id",
+							"value": "987654321",
+							"type": "text"
+						},
+						{
+							"key": "date-of-birth",
+							"value": "01/01/1980",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/patient",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET (wrong http content type)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Jane\", \n    \"lastName\": \"Doe\",\n    \"patientUid\": \"patientid478048293\",\n    \"primaryStudentId\": 14420,\n    \"clinicIds\" : [1653],\n    \"email\" : \"demo1@test.com\",\n    \"dateOfBirth\":\"1946-12-19T00:00:00+00:00\",\n    \"connectData\" : {\n        \"insurance\":\"medicare\",\n        \"gender\":\"Female\",\n        \"city\": \"kirkland\",\n        \"zipcode\":\"98119\",\n        \"state\":\"Washington\",\n        \"phone\":\"123-123-1234\",\n        \"caseStatus\":\"Active\",\n        \"bodyRegion\": [\n            {\"code\":\"m.213\", \"bodyRegion\":\"Shoulder\"}\n        ],\n        \"physicianName\":\"JUSTIN PENNINGTON\",\n        \"initialEvalDate\":\"2017-08-15T00:00:00+00:00\",\n        \"lastVisitDate\":\"2017-05-15T00:00:00+00:00\",\n        \"dischargeDate\":\"2017-02-15T00:00:00+00:00\",\n        \"referralDate\":\"2017-07-13T00:00:00+00:00\",\n        \"clinicId\" : 1653,\n        \"caseCreationDate\":\"2017-08-15T00:00:00+00:00\"\n    }\n}\n"
+				},
+				"url": {
+					"raw": "localhost:8080/patient",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
