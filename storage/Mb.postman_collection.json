@@ -62,7 +62,7 @@
 			"response": []
 		},
 		{
-			"name": "/patient Form",
+			"name": "/patient Form (415)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -97,6 +97,34 @@
 							"type": "text"
 						}
 					]
+				},
+				"url": {
+					"raw": "{{url}}/patient",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/patient JSON (405)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Jane\", \n    \"lastName\": \"Doe\",\n    \"patientUid\": \"patientid478048293\",\n    \"primaryStudentId\": 14420,\n    \"clinicIds\" : [1653],\n    \"email\" : \"demo1@test.com\",\n    \"dateOfBirth\":\"1946-12-19T00:00:00+00:00\",\n    \"connectData\" : {\n        \"insurance\":\"medicare\",\n        \"gender\":\"Female\",\n        \"city\": \"kirkland\",\n        \"zipcode\":\"98119\",\n        \"state\":\"Washington\",\n        \"phone\":\"123-123-1234\",\n        \"caseStatus\":\"Active\",\n        \"bodyRegion\": [\n            {\"code\":\"m.213\", \"bodyRegion\":\"Shoulder\"}\n        ],\n        \"physicianName\":\"JUSTIN PENNINGTON\",\n        \"initialEvalDate\":\"2017-08-15T00:00:00+00:00\",\n        \"lastVisitDate\":\"2017-05-15T00:00:00+00:00\",\n        \"dischargeDate\":\"2017-02-15T00:00:00+00:00\",\n        \"referralDate\":\"2017-07-13T00:00:00+00:00\",\n        \"clinicId\" : 1653,\n        \"caseCreationDate\":\"2017-08-15T00:00:00+00:00\"\n    }\n}\n"
 				},
 				"url": {
 					"raw": "{{url}}/patient",

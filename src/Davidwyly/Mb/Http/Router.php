@@ -37,7 +37,7 @@ class Router
             && count($arguments) === 2
         ) {
             list($route, $callback) = $arguments;
-            $this->{$name}[$this->cleanRoute($route)] = $callback;
+            $this->{$method}[$this->cleanRoute($route)] = $callback;
         }
     }
 
