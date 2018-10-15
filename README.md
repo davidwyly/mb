@@ -11,7 +11,7 @@ This is an example project that transforms POST data of different content types 
 ```
    
 ## Installation
-While this project does not have to be installed in order to be evaluated, I have set up docker so that you can more easily run and test the service yourself. 
+While this project does not have to be installed in order to be evaluated, I have set up docker so that you can more easily run and test the service yourself.
 
 These installation instructions assume that the following is already installed on your dev environment:
 - Git
@@ -42,13 +42,24 @@ These installation instructions assume that the following is already installed o
 1. Open up a new terminal
 2. Navigate to the root directory
     - `cd ~/mb`
-3. Run `docker-compose up --build`
+3. Build your containers
+   - `docker-compose up --build`
 
 #### Tests
 1. Ensure you're in the root directory
     - `cd ~/mb`
-2. Run `run_tests`
+2. Run the PHPUnit tests
+   - `run_tests`
 
 #### Postman
 1. Import collection from `~/mb/storage/Mb.postman_collection.json`
-2. Url for endpoint is `localhost:8080/patient`
+2. Set up a new postman environment
+   1. Click the gear icon in top-right corner
+   2. Click `Add`
+   3. Create an environment name
+   4. Add a `url` variable with `localhost:8080` as the initial value
+   5. Click `Add`
+   6. Select the environment from the drop-down in the top-right corner
+3. Requests can be found within the `Mb` collection
+
+## Project Structure
