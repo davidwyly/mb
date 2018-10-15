@@ -11,6 +11,8 @@ This is an example project that transforms POST data of different content types 
 ```
    
 ## Installation
+While this project does not have to be installed in order to be evaluated, I have set up docker so that you can more easily run and test the service yourself. 
+
 These installation instructions assume that the following is already installed on your dev environment:
 - Git
 - Composer
